@@ -1,0 +1,59 @@
+10-1
+
+using System;
+
+class Letter
+{
+    public string RecipientName { get; set; }
+    public string DateMailed { get; set; }
+
+    public override string ToString()
+    {
+        return $"{GetType().Name} - Recipient: {RecipientName}, Date Mailed: {DateMailed}";
+    }
+}
+
+class CertifiedLetter : Letter
+{
+    public string TrackingNumber { get; set; }
+
+    public override string ToString()
+    {
+        return $"{GetType().Name} - Recipient: {RecipientName}, Date Mailed: {DateMailed}, Tracking Number: {TrackingNumber}";
+    }
+}
+
+class LetterDemo
+{
+    static void Main()
+    {
+        Console.WriteLine("Enter details for a regular letter:");
+        Letter regularLetter = new Letter
+        {
+            RecipientName = GetUserInput("Recipient Name"),
+            DateMailed = GetUserInput("Date Mailed")
+        };
+
+        Console.WriteLine("Enter details for a certified letter:");
+        CertifiedLetter certifiedLetter = new CertifiedLetter
+        {
+            RecipientName = GetUserInput("Recipient Name"),
+            DateMailed = GetUserInput("Date Mailed"),
+            TrackingNumber = GetUserInput("Tracking Number")
+        };
+
+        Console.WriteLine("\nDetails of the regular letter:");
+        Console.WriteLine(regularLetter);
+
+        Console.WriteLine("\nDetails of the certified letter:");
+        Console.WriteLine(certifiedLetter);
+    }
+
+    static string GetUserInput(string prompt)
+    {
+        Console.Write($"{prompt}: ");
+        return Console.ReadLine();
+    }
+}
+
+
