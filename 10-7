@@ -1,0 +1,64 @@
+// 10-7
+
+using System;
+
+// Interface definition
+public interface IRecoverable
+{
+    void Recover();
+}
+
+// Patient class implementing IRecoverable
+public class Patient : IRecoverable
+{
+    // Default constructor
+    public Patient() { }
+
+    // Implementing the Recover method
+    public void Recover()
+    {
+        Console.WriteLine("I am getting better.");
+    }
+}
+
+// Upholsterer class implementing IRecoverable
+public class Upholsterer : IRecoverable
+{
+    // Default constructor
+    public Upholsterer() { }
+
+    // Implementing the Recover method
+    public void Recover()
+    {
+        Console.WriteLine("I have new material for the couch.");
+    }
+}
+
+// FootballPlayer class implementing IRecoverable
+public class FootballPlayer : IRecoverable
+{
+    // Default constructor
+    public FootballPlayer() { }
+
+    // Implementing the Recover method
+    public void Recover()
+    {
+        Console.WriteLine("I picked up the ball after a fumble.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Creating objects of each type
+        Patient patient = new Patient();
+        Upholsterer upholsterer = new Upholsterer();
+        FootballPlayer footballPlayer = new FootballPlayer();
+
+        // Calling the Recover() method for each object
+        patient.Recover();
+        upholsterer.Recover();
+        footballPlayer.Recover();
+    }
+}
